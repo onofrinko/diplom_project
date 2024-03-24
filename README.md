@@ -4,6 +4,8 @@
 docker-compose up
 ```
 
+Open browser [localhost:8080](http://localhost:8080)
+
 ### PHP container access
 
 ```
