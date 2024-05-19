@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTables extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -35,7 +35,7 @@ class CreateTables extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('phone_number', 15);
 
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         Schema::create('properties', function (Blueprint $table) {
@@ -66,4 +66,4 @@ class CreateTables extends Migration
         Schema::dropIfExists('property_details');
         Schema::dropIfExists('property_types');
     }
-}
+};
