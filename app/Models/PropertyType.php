@@ -25,4 +25,6 @@ class PropertyType extends Model
     {
         return $this->hasMany(PropertyDetail::class, 'property_type_id', 'property_type_id');
     }
+
+
 }

@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             LendlordSeeder::class,
-//            PropertyTypeSeeder::class,
+            PropertyTypeSeeder::class,
 //            PropertyDetailSeeder::class,
-//            PropertySeeder::class,
+            PropertySeeder::class,
         ]);
 
 //        User::factory()->create([

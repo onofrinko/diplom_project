@@ -33,12 +33,13 @@ return new class extends Migration
             $table->string('first_name', 30);
             $table->string('last_name', 30);
             $table->integer('user_id')->unsigned();
-            $table->string('phone_number', 15);
+            $table->string('phone_number', 20);
 
             $table->foreign('user_id')->references('id')->on('users');
         });
 
         Schema::create('properties', function (Blueprint $table) {
+            $table->increments('property_id');
             $table->integer('lendlord_id');
             $table->integer('cost');
             $table->float('total_area');
@@ -46,9 +47,6 @@ return new class extends Migration
             $table->string('property_status', 20);
             $table->integer('property_type_id')->unsigned();
             $table->json('property_details');
-
-            $table->primary('lendlord_id');
-
             $table->foreign('lendlord_id')->references('lendlord_id')->on('lendlords');
             $table->foreign('property_type_id')->references('property_type_id')->on('property_types');
         });

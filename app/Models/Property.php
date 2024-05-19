@@ -9,8 +9,7 @@ class Property extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'lendlord_id';
-    public $incrementing = false;
+    protected $primaryKey = 'property_id';
     public $timestamps = false;
 
     protected $fillable = [
