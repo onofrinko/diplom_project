@@ -80,6 +80,7 @@
         :bedrooms="$p->property_details['bedrooms']"
         :bathrooms="$p->property_details['bathrooms']"
         :total_area="$p->total_area"
+        :address="$p->property_details['address']"
     />
     @endforeach
 @endsection

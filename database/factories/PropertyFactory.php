@@ -28,6 +28,12 @@ class PropertyFactory extends Factory
             'property_status' => $this->faker->randomElement(['available', 'sold', 'pending']),
             'property_type_id' => $propertyTypes->random()->property_type_id,
             'property_details' => [
+                'address' => [
+                    'city' => $this->faker->city(),
+                    'building' => $this->faker->buildingNumber(),
+                    'street' => $this->faker->streetAddress(),
+                    'zip' => $this->faker->postcode(),
+                ],
                 'bedrooms' => $this->faker->numberBetween(1, 5),
                 'bathrooms' => $this->faker->numberBetween(1, 5),
                 'floors' => $this->faker->numberBetween(1, 3),
