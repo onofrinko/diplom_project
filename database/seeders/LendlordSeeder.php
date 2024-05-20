@@ -14,6 +14,6 @@ class LendlordSeeder extends Seeder
      */
     public function run(): void
     {
-        Lendlord::factory()->has(User::factory())->create();
+        Lendlord::factory()->has(User::factory())->count(6)->create();
     }
 }
