@@ -24,19 +24,22 @@ class RealEstateSearchController extends Controller
         $properties = Property::where(function ($query) use ($request) {
             if ($request->input('min_price')) {
                 $query->where('cost', '>=', $request->input('min_price'));
-            }  
+            }
             if ($request->input('max_price')){
                 $query->where('cost', '<=', $request->input('max_price'));
             }
             if ($request->input('property_type')){
                 $query->where('property_type_id', $request->input('property_type'));
             }
+            if($request->input('num_bed')){
+                $query->where('property_details->bedrooms', $request->input('num_bed'));
+            }
         })->get();
 
         // Return the search results to a view or as JSON
         return view('search_results', [
-            'properties' => $properties, 
-            'request' => $request, 
+            'properties' => $properties,
+            'request' => $request,
             'property_types' => $property_types
         ]);
     }
