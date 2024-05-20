@@ -11,7 +11,7 @@
         <p>{{ $description }}</p>
         <footer>
             <p><strong>Price:</strong> ${{ $price }}</p>
-            <p>{{ $bedrooms }} bedrooms 🛏️, {{ $bathrooms }} bathrooms 🚿, {{ $total_area }} sqft</p>
+            <p>{{ $bedrooms }} bedrooms 🛏️, {{ $bathrooms }} bathrooms 🚿, {{ $total_area }} m²</p>
         </footer>
     </div>
 </article>
