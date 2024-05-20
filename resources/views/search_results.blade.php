@@ -70,4 +70,16 @@
         <li>{{$p->propertyType->type}} - {{$p->cost}}</li>
     @endforeach
     </ul>
+
+    @foreach ($properties as $p)
+    <x-house-rent-box
+        :image="$p->image_url"
+        :title="$p->title"
+        :description="$p->description"
+        :price="$p->cost"
+        :bedrooms="$p->property_details['bedrooms']"
+        :bathrooms="$p->property_details['bathrooms']"
+        :total_area="$p->total_area"
+    />
+    @endforeach
 @endsection
