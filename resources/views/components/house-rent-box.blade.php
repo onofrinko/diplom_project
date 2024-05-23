@@ -2,7 +2,7 @@
 
 <article class="house-rent-box">
     <div class="house-rent-box__image">
-        <img src="{{ $image ?: url('/images/house.webp') }}" alt="House Image"/>
+        <img src="{{ $image ? url($image) : url('/images/house.webp') }}" alt="House Image"/>
     </div>
     <div class="house-rent-box__content">
         <header>

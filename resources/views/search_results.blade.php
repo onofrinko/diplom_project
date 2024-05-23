@@ -26,6 +26,7 @@
     <div class="stack">
         <label for="property_type">Property Type:</label>
         <select name="property_type" id="property_type" class="input">
+            <option value="">All</option>
             @foreach($property_types as $pt)
                 <option value="{{$pt->property_type_id}}" {{$pt->property_type_id == $request->input('property_type') ? 'selected' : ''}}>{{$pt->type}}</option>
             @endforeach
@@ -76,11 +77,11 @@
         }
     </style>
 
-
+    {{ $properties->links() }}
 
     @foreach ($properties as $p)
     <x-house-rent-box
-        :image="$p->image_url"
+        :image="$p->image"
         :title="$p->title"
         :description="$p->description"
         :price="$p->cost"
@@ -91,5 +92,4 @@
         :address="$p->property_details['address']"
     />
     @endforeach
-    {{ $properties->links() }}
 @endsection

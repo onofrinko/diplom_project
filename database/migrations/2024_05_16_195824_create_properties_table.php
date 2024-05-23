@@ -49,6 +49,7 @@ return new class extends Migration
             $table->json('property_details');
             $table->foreign('lendlord_id')->references('lendlord_id')->on('lendlords');
             $table->foreign('property_type_id')->references('property_type_id')->on('property_types');
+            $table->text('image')->nullable();
         });
     }
 
