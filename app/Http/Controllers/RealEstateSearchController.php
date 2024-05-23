@@ -43,7 +43,7 @@ class RealEstateSearchController extends Controller
                 $query->where('property_details->floors', $request->input('num_floors'));
             }
 
-        })->get();
+        })->paginate(5)->withQueryString();
 
         // Return the search results to a view or as JSON
         return view('search_results', [

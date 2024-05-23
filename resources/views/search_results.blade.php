@@ -63,7 +63,7 @@
 
     <button type="submit" class="button primary">Search</button>
     </form>
-    
+
     <style>
         .found-options {
             font-size: x-large;
@@ -75,16 +75,8 @@
             align-items: flex-start;
         }
     </style>
-    
-    <p class="found-options">{{count($properties)}} - Items found based on your query. Check them out below:</p>
-    
 
 
-    <ul>
-    @foreach ($properties as $p)
-        <li>{{$p->propertyType->type}} - {{$p->cost}}</li>
-    @endforeach
-    </ul>
 
     @foreach ($properties as $p)
     <x-house-rent-box
@@ -99,4 +91,5 @@
         :address="$p->property_details['address']"
     />
     @endforeach
+    {{ $properties->links() }}
 @endsection
