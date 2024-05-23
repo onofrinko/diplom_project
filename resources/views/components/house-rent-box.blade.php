@@ -1,4 +1,4 @@
-@props(['image', 'title', 'description', 'price', 'bedrooms', 'bathrooms', 'total_area', 'address'])
+@props(['image', 'title', 'description', 'price', 'bedrooms', 'bathrooms', 'floors', 'total_area', 'address'])
 
 <article class="house-rent-box">
     <div class="house-rent-box__image">
@@ -11,7 +11,7 @@
         <p>{{ $description }}</p>
         <footer>
             <p><strong>Price:</strong> ${{ $price }}</p>
-            <p>{{ $bedrooms }} bedrooms 🛏️, {{ $bathrooms }} bathrooms 🚿, {{ $total_area }} m²</p>
+            <p>{{ $bedrooms }} bedrooms 🛏️, {{ $bathrooms }} bathrooms 🚿, {{ $floors }} - floors 🏠, {{ $total_area }} m²</p>
             <p class="address-text">{{ $address['building'] }}, {{ $address['street'] }}, {{ $address['city'] }}, {{ $address['zip'] }}</p>
         </footer>
     </div>
@@ -38,6 +38,7 @@
         margin-left: 1rem;
         flex: 1;
     }
+
     .address-text {
         font-size: 0.8rem;
         font-style: italic;

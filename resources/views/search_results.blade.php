@@ -57,13 +57,28 @@
     </div>
 
     <div class="stack">
-        <label for="floor">Number of floors:</label>
-        <input type="number" name="num_floor" id="num_floor" class="input" placeholder="Number" value="{{$request->input('num_floor','')}}">
+        <label for="floors">Number of floors:</label>
+        <input type="number" name="num_floors" id="num_floors" class="input" placeholder="Number" value="{{$request->input('num_floors','')}}">
     </div>
 
     <button type="submit" class="button primary">Search</button>
     </form>
-    <pre>res: {{count($properties)}}</pre>
+    
+    <style>
+        .found-options {
+            font-size: x-large;
+            font-weight: bold;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            align-items: flex-start;
+        }
+    </style>
+    
+    <p class="found-options">{{count($properties)}} - Items found based on your query. Check them out below:</p>
+    
+
 
     <ul>
     @foreach ($properties as $p)
@@ -79,6 +94,7 @@
         :price="$p->cost"
         :bedrooms="$p->property_details['bedrooms']"
         :bathrooms="$p->property_details['bathrooms']"
+        :floors="$p->property_details['floors']"
         :total_area="$p->total_area"
         :address="$p->property_details['address']"
     />

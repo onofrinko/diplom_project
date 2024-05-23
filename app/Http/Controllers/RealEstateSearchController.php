@@ -34,6 +34,15 @@ class RealEstateSearchController extends Controller
             if($request->input('num_bed')){
                 $query->where('property_details->bedrooms', $request->input('num_bed'));
             }
+
+            if($request->input('num_bath')){
+                $query->where('property_details->bathrooms', $request->input('num_bath'));
+            }
+
+            if($request->input('num_floor')){
+                $query->where('property_details->floors', $request->input('num_floors'));
+            }
+
         })->get();
 
         // Return the search results to a view or as JSON
