@@ -14,4 +14,5 @@ copy .env.example .env
 
 ```
 docker-compose exec app sh
+php artisan migrate:fresh --seed
 ```
