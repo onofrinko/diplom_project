@@ -14,5 +14,13 @@ copy .env.example .env
 
 ```
 docker-compose exec app sh
+composer install
 php artisan migrate:fresh --seed
+```
+
+### Build Breeze
+```shell
+npm install
+npm run dev
+# for production mode use npm run build
 ```

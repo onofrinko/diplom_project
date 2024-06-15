@@ -1,6 +1,6 @@
 {{-- Updated Landing Page Template: resources/views/landing.blade.php --}}
 
-@extends('layouts.app')
+@extends('layouts.landing')
 
 @section('title', 'Discover Your Dream Home')
 
@@ -9,6 +9,7 @@
     <h1 class="hero-heading">Your Journey Home Begins Here</h1>
     <p class="lead">Explore a world where dreams meet reality. From cozy apartments to luxurious houses, find a place you can truly call home. Let's navigate the path to your dream home together.</p>
     <a href="{{ route('real_estate.search') }}" class="find-your-home-button">Find Your Home</a>
+    <p><a href="{{ route('dashboard') }}" >Already have an account</a></p>
 
     <div class="features">
         <div class="grid">
