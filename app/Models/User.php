@@ -46,4 +46,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function lendlord()
+    {
+        return $this->hasOne(Lendlord::class, 'user_id', 'id');
+    }
 }

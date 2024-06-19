@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LandlordProfileUpdateRequest;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -33,6 +34,26 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
+    public function updateLandlord(LandlordProfileUpdateRequest $request): RedirectResponse
+    {
+        $user = $request->user();
+        $user->name = $request->first_name . ' ' . $request->last_name;
+        $user->email = $request->email;
+        $lendlord = $user->lendlord;
+        $lendlord->first_name = $request->first_name;
+        $lendlord->last_name = $request->last_name;
+        $lendlord->phone_number = $request->phone;
+
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+
+        $user->save();
+        $lendlord->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
