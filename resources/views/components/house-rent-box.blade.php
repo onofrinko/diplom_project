@@ -1,4 +1,4 @@
-@props(['image', 'title', 'description', 'price', 'bedrooms', 'bathrooms', 'floors', 'total_area', 'address'])
+@props(['image', 'title', 'description', 'price', 'bedrooms', 'bathrooms', 'floors', 'total_area', 'address', 'property_id' ])
 
 <article class="house-rent-box">
     <div class="house-rent-box__image">
@@ -9,6 +9,8 @@
             <p><strong>Price:</strong> ${{ $price }}</p>
             <p>{{ $bedrooms }} bedrooms 🛏️, {{ $bathrooms }} bathrooms 🚿, {{ $floors }} - floors 🏠, {{ $total_area }} m²</p>
             <p class="address-text">{{ $address['building'] }}, {{ $address['street'] }}, {{ $address['city'] }}, {{ $address['zip'] }}</p>
+
+            <a href="{{ route('property.edit', ['property' => $property_id]) }}">Edit Property</a>
         </footer>
     </div>
 </article>

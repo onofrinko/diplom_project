@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\RealEstateSearchController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::patch('/landlord/profile', [ProfileController::class, 'updateLandlord'])->name('profile.update-landlord');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/property/{property}/edit', [PropertyController::class, 'edit'])->name('property.edit');
+    Route::patch('/property/{property}', [PropertyController::class, 'update'])->name('property.update');
 });
 
 require __DIR__.'/auth.php';
