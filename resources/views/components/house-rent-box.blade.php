@@ -5,10 +5,6 @@
         <img src="{{ $image ? url($image) : url('/images/house.webp') }}" alt="House Image"/>
     </div>
     <div class="house-rent-box__content">
-        <header>
-            <h2>{{ $title }}</h2>
-        </header>
-        <p>{{ $description }}</p>
         <footer>
             <p><strong>Price:</strong> ${{ $price }}</p>
             <p>{{ $bedrooms }} bedrooms 🛏️, {{ $bathrooms }} bathrooms 🚿, {{ $floors }} - floors 🏠, {{ $total_area }} m²</p>
