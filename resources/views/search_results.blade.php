@@ -90,6 +90,7 @@
         :floors="$p->property_details['floors']"
         :total_area="$p->total_area"
         :address="$p->property_details['address']"
+        :propertyId="$p->property_id"
     />
     @endforeach
 @endsection
