@@ -2,7 +2,7 @@
 
 <article class="house-rent-box">
     <div class="house-rent-box__image">
-        <img src="{{ $image ? url($image) : url('/images/house.webp') }}" alt="House Image"/>
+        <img src="{{ $image ? url(Storage::url($image)) : url('/images/house.webp') }}" alt="House Image"/>
     </div>
     <div class="house-rent-box__content">
         <div>
@@ -19,6 +19,12 @@
             <p>&nbsp;</p>
             <div class="button-container">
                 <a href="{{ route('show.details', $property_id) }}"
+                   class="rounded-md px-1 py-1 text-black bg-blue-500 hover:bg-blue-700 text-white transition duration-300 ease-in-out inline-block mt-auto button-text">
+                    Public view
+                </a>
+            </div>
+            <div class="button-container">
+                <a href="{{ route('property.show', $property_id) }}"
                    class="rounded-md px-1 py-1 text-black bg-blue-500 hover:bg-blue-700 text-white transition duration-300 ease-in-out inline-block mt-auto button-text">
                     View details
                 </a>

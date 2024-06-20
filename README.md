@@ -24,3 +24,9 @@ npm install
 npm run dev
 # for production mode use npm run build
 ```
+### Storage
+
+```shell
+
+php artisan storage:link
+```

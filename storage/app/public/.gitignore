@@ -1,2 +1,7 @@
 *
 !.gitignore
+!apartment/*
+!condo/*
+!multi-family/*
+!single-family/*
+!townhouse/*

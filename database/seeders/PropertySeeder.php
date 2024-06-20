@@ -18,55 +18,55 @@ class PropertySeeder extends Seeder
             ->sequence(
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(1).jpeg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(1).jpeg')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(1).jpg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(1).jpg')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(1).webp')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(1).webp')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(2).jpeg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(2).jpeg')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(2).jpg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(2).jpg')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(2).webp')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(2).webp')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(3).jpg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(3).jpg')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(4).jpg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(4).jpg')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(5).jpg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(5).jpg')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(6).jpg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(6).jpg')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(7).jpg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(7).jpg')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(8).jpg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(8).jpg')
                 ],
                 [
                     'property_type_id' => 3,
-                    'image' => urldecode('multi-family/multi-family%20home%20(9).jpg')
+                    'image' => urldecode('public/images/multi-family/multi-family%20home%20(9).jpg')
                 ])
             ->count(12)
             ->create();

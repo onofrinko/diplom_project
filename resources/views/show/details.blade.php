@@ -20,7 +20,7 @@
             <p><strong>Property Type ID:</strong> {{ $properties->property_type_id }}</p>
             <p><strong>Property Details:</strong> {{ json_encode($properties->property_details) }}</p>
             <div class="property-image">
-                <img src="{{ $properties->image ? asset($properties->image) : url('/images/house.webp') }}" alt="Property Image" style="width: 400px; height: 300px; object-fit: cover; border-radius: 8px;"/>
+                <img src="{{ $properties->image ? url(Storage::url($properties->image)) : url('/images/house.webp') }}" alt="Property Image" style="width: 400px; height: 300px; object-fit: cover; border-radius: 8px;"/>
             </div>
             @if($user)
             <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative" role="alert">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePropertyRequest;
+use App\Http\Requests\UpdatePropertyImageRequest;
 use App\Http\Requests\UpdatePropertyRequest;
 use App\Models\Property;
 use App\Models\PropertyType;
@@ -10,6 +11,7 @@ use App\Models\WishedProperty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class PropertyController extends Controller
 {
@@ -93,6 +95,25 @@ class PropertyController extends Controller
         $property->property_details = $request->property_details;
         $property->save();
         return Redirect::route('property.edit', $property->property_id)->with('status', 'property-updated');
+    }
+
+    public function updateImage(UpdatePropertyImageRequest $request, $id)
+    {
+        $property = Property::findOrFail($id);
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($property->image) {
+                Storage::delete($property->image);
+            }
+
+            // Store new image
+            $path = $request->file('image')->store('public/images');
+            $property->update(['image' => $path]);
+        }
+
+        return redirect()->route('property.edit', $id)->with('status', 'image-updated');
     }
 
     /**

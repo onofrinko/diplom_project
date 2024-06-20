@@ -10,6 +10,11 @@
             @if ($user->lendlord && $user->lendlord->lendlord_id == $property->lendlord_id)
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
+                    @include('property.partials.update-image-form')
+                </div>
+            </div>
+            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
+                <div class="max-w-xl">
                     @include('property.partials.update-property-information-form')
                 </div>
             </div>

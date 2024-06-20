@@ -32,6 +32,13 @@
             @endif
         </div>
 
+        @if ($property->image)
+        <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+            <h2 class="text-2xl font-bold mb-4">Property Image</h2>
+            <img src="{{ url(Storage::url($property->image)) }}" alt="House Image" class="w-full h-auto rounded-lg">
+        </div>
+        @endif
+
         <div class="bg-white shadow-md rounded-lg p-6 mb-4">
             <h2 class="text-2xl font-bold mb-4">Basic Information</h2>
 

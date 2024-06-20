@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/property', [PropertyController::class, 'store'])->name('property.store');
     Route::patch('/property/{property}', [PropertyController::class, 'update'])->name('property.update');
     Route::patch('/property/{property}/wish', [PropertyController::class, 'wish'])->name('property.wish');
+    Route::patch('/property/{property}/image', [PropertyController::class, 'updateImage'])->name('property.updateImage');
 });
 
 Route::get('/property/{id}', [DetailsController::class, 'show'])->name('show.details');
