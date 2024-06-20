@@ -23,6 +23,9 @@ Route::get('/search', [RealEstateSearchController::class, 'search'])->name('real
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/wishlist', [DashboardController::class, 'wishlist'])
+    ->middleware(['auth', 'verified'])->name('wishlist');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

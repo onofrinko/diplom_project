@@ -31,6 +31,7 @@
                                  :propertyType="$property->propertyType->type"
                                  :address="$property->property_details['address']"
                                  :property_id="$property->property_id"
+                                 :is_lendlord="true"
                             />
                         @endforeach
                     @endif

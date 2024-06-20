@@ -1,4 +1,4 @@
-@props(['image', 'title', 'description', 'price', 'bedrooms', 'bathrooms', 'floors', 'total_area', 'address', 'property_id' ])
+@props(['image', 'title', 'description', 'price', 'bedrooms', 'bathrooms', 'floors', 'total_area', 'address', 'property_id', 'is_lendlord' ])
 
 <article class="house-rent-box">
     <div class="house-rent-box__image">
@@ -29,12 +29,14 @@
                     View details
                 </a>
             </div>
+            @if ($is_lendlord)
             <div class="button-container">
                 <a href="{{ route('property.edit', ['property' => $property_id]) }}"
                    class="rounded-md px-1 py-1 text-black bg-green-700 hover:bg-green-900 text-white transition duration-300 ease-in-out inline-block mt-auto button-text">
                     Edit details
                 </a>
             </div>
+            @endif
         </footer>
     </div>
 </article>
