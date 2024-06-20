@@ -23,7 +23,6 @@ Route::get('/search', [RealEstateSearchController::class, 'search'])->name('real
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::get('/property/{id}', [DetailsController::class, 'show'])->name('show.details');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,7 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/property/{property}/edit', [PropertyController::class, 'edit'])->name('property.edit');
+    Route::get('/property/create', [PropertyController::class, 'create'])->name('property.create');
+    Route::post('/property', [PropertyController::class, 'store'])->name('property.store');
     Route::patch('/property/{property}', [PropertyController::class, 'update'])->name('property.update');
 });
+
+Route::get('/property/{id}', [DetailsController::class, 'show'])->name('show.details');
 
 require __DIR__.'/auth.php';

@@ -5,19 +5,31 @@
         <img src="{{ $image ? url($image) : url('/images/house.webp') }}" alt="House Image"/>
     </div>
     <div class="house-rent-box__content">
-        <footer>
+        <div>
             <p><strong>Price:</strong> ${{ $price }}</p>
-            <p>{{ $bedrooms }} bedrooms 🛏️, {{ $bathrooms }} bathrooms 🚿, {{ $floors }} - floors 🏠, {{ $total_area }} m²</p>
+            <p>{{ $bedrooms }} bedrooms 🛏️</p>
+            <p>{{ $bathrooms }} bathrooms 🚿</p>
+            <p>{{ $floors }} - floors 🏠</p>
+            <p>{{ $total_area }} m²</p>
+            <p style="font-size: 0.3rem">&nbsp;</p>
             <p class="address-text">{{ $address['building'] }}, {{ $address['street'] }}, {{ $address['city'] }}, {{ $address['zip'] }}</p>
-
-            <a href="{{ route('property.edit', ['property' => $property_id]) }}">Edit Property</a>
-        </footer>
-        <div class="button-container" style="align-self: flex-end;">
-            <a href="{{ route('show.details', $property_id) }}"
-               class="rounded-md px-3 py-2 text-black bg-blue-500 hover:bg-blue-700 text-white transition duration-300 ease-in-out inline-block mt-auto">
-                View details
-            </a>
         </div>
+        <footer>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <div class="button-container">
+                <a href="{{ route('show.details', $property_id) }}"
+                   class="rounded-md px-1 py-1 text-black bg-blue-500 hover:bg-blue-700 text-white transition duration-300 ease-in-out inline-block mt-auto button-text">
+                    View details
+                </a>
+            </div>
+            <div class="button-container">
+                <a href="{{ route('property.edit', ['property' => $property_id]) }}"
+                   class="rounded-md px-1 py-1 text-black bg-green-700 hover:bg-green-900 text-white transition duration-300 ease-in-out inline-block mt-auto button-text">
+                    Edit details
+                </a>
+            </div>
+        </footer>
     </div>
 </article>
 
@@ -46,5 +58,9 @@
     .address-text {
         font-size: 0.8rem;
         font-style: italic;
+    }
+
+    .button-text {
+        font-size: 0.8rem;
     }
 </style>

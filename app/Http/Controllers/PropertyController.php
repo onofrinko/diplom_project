@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePropertyRequest;
+use App\Http\Requests\UpdatePropertyRequest;
 use App\Models\Property;
 use App\Models\PropertyType;
 use Illuminate\Http\Request;
@@ -23,15 +25,34 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        return view('property.create', [
+            'user' => $user,
+            'propertyTypes' => PropertyType::all(),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePropertyRequest $request)
     {
-        //
+        $lendlord = Auth::user()->lendlord;
+        Property::create([
+            'cost' => $request['property_cost'],
+            'total_area' => $request['total_area'],
+            'property_status' => $request['property_status'],
+            'pub_date' => now(),
+            'property_type_id' => $request['property_type_id'],
+            'property_details' => $request['property_details'],
+            'lendlord_id' => $lendlord->lendlord_id,
+        ]);
+
+        //$new->save();
+
+        return redirect()
+            ->route('properties.index')
+            ->with('success', 'Property created successfully.');
     }
 
     /**
@@ -58,26 +79,13 @@ class PropertyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Property $property)
+    public function update(UpdatePropertyRequest $request, Property $property)
     {
         $property->cost = $request->property_cost;
         $property->total_area = $request->total_area;
         $property->property_status = $request->property_status;
         $property->property_type_id = $request->property_type_id;
-//        $property->property_details = [
-//            'address' => [
-//                'city' => $request->city,
-//                'building' => $request->building,
-//                'street' => $request->street,
-//                'zip' => $request->zip,
-//            ],
-//            'bedrooms' => $request->bedrooms,
-//            'bathrooms' => $request->bathrooms,
-//            'floors' => $request->floors,
-//            'garage' => $request->garage,
-//            'pool' => $request->pool,
-//            'description' => $request->description,
-//        ];
+        $property->property_details = $request->property_details;
         $property->save();
         return Redirect::route('property.edit', $property->property_id)->with('status', 'property-updated');
     }
