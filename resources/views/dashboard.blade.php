@@ -24,6 +24,7 @@
                                  :total_area="$property->total_area"
                                  :propertyType="$property->propertyType->type"
                                  :address="$property->property_details['address']"
+                                 :property_id="$property->property_id"
                             />
                         @endforeach
                     @endif
