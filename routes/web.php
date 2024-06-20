@@ -32,8 +32,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/property/{property}/edit', [PropertyController::class, 'edit'])->name('property.edit');
     Route::get('/property/create', [PropertyController::class, 'create'])->name('property.create');
+    Route::get('/property/{property}/show', [PropertyController::class, 'show'])->name('property.show');
     Route::post('/property', [PropertyController::class, 'store'])->name('property.store');
     Route::patch('/property/{property}', [PropertyController::class, 'update'])->name('property.update');
+    Route::patch('/property/{property}/wish', [PropertyController::class, 'wish'])->name('property.wish');
 });
 
 Route::get('/property/{id}', [DetailsController::class, 'show'])->name('show.details');

@@ -5,18 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lendlord extends Model
+class WishedProperty extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'lendlord_id';
-    public $timestamps = false;
-
     protected $fillable = [
-        'first_name',
-        'last_name',
         'user_id',
-        'phone_number',
+        'property_id',
     ];
 
     public function user()
@@ -24,8 +19,8 @@ class Lendlord extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function properties()
+    public function property()
     {
-        return $this->hasMany(Property::class, 'lendlord_id', 'lendlord_id');
+        return $this->belongsTo(Property::class, 'property_id', 'property_id');
     }
 }

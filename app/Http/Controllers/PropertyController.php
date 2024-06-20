@@ -6,6 +6,7 @@ use App\Http\Requests\StorePropertyRequest;
 use App\Http\Requests\UpdatePropertyRequest;
 use App\Models\Property;
 use App\Models\PropertyType;
+use App\Models\WishedProperty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -60,7 +61,11 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        //
+        $user = Auth::user();
+        return view('property.show', [
+            'user' => $user,
+            'property' => $property,
+        ]);
     }
 
     /**
@@ -96,5 +101,26 @@ class PropertyController extends Controller
     public function destroy(Property $property)
     {
         //
+    }
+
+    public function wish(Property $property)
+    {
+        $user = Auth::user();
+        $wished = WishedProperty::where('user_id', $user->id)
+            ->where('property_id', $property->property_id)
+            ->first();
+        if ($wished) {
+            return redirect()
+                ->route('property.show', $property->property_id)
+                ->with('status','property-already-wished');
+        }
+
+        WishedProperty::create([
+            'user_id' => $user->id,
+            'property_id' => $property->property_id,
+        ]);
+        return redirect()
+            ->route('property.show', $property->property_id)
+            ->with('status','property-wished');
     }
 }
