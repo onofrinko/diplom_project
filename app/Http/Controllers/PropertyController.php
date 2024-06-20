@@ -41,7 +41,7 @@ class PropertyController extends Controller
     public function store(StorePropertyRequest $request)
     {
         $lendlord = Auth::user()->lendlord;
-        Property::create([
+        $p = Property::create([
             'cost' => $request['property_cost'],
             'total_area' => $request['total_area'],
             'property_status' => $request['property_status'],
@@ -54,8 +54,8 @@ class PropertyController extends Controller
         //$new->save();
 
         return redirect()
-            ->route('properties.index')
-            ->with('success', 'Property created successfully.');
+            ->route('property.show', $p->property_id)
+            ->with('status', 'property-created');
     }
 
     /**
